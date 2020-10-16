@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    background-color: #262626;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+.box {
+    position: relative;
+    height: 250px;
+    width: 400px;
+    background: url(bg.jpg) no-repeat center / cover;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: .3s;
+}
+
+.box:hover::before {
+    opacity: 1;
+}
+
+.box span {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: center;
+    transform: scale(.7);
+    transition: .4s;
+    opacity: 0;
+}
+
+.box span:first-of-type {
+    top: 10px;
+}
+
+.box span:nth-of-type(2) {
+    left: 10px;
+    width: 2px;
+    height: 100%;
+}
+
+.box span:nth-of-type(3) {
+    right: 10px;
+    width: 2px;
+    height: 100%;
+}
+
+.box span:last-of-type {
+    bottom: 10px;
+}
+
+.box:hover span:first-of-type,
+.box:hover span:last-of-type{
+    transform: scale(.94);
+    opacity: 1;
+}
+
+.box:hover span:nth-of-type(2),
+.box:hover span:nth-of-type(3){
+    transform: scale(.92);
+    opacity: 1;
+}
+
+.box div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #FFF;
+    padding: 40px;
+}
+
+.box div h1 {
+    transform: translateY(-30px);
+    transition: .4s;
+    opacity: 0;
+}
+
+.box div p {
+    transform: translateY(30px);
+    transition: .4s;
+    opacity: 0;
+}
+
+
+.box:hover  div h1,
+.box:hover div p{
+    transform: translateY(0px);
+    opacity: 1;
+}
